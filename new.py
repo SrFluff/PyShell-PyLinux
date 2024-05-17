@@ -2,7 +2,7 @@ import os
 
 def cls():
 
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 #Clears the screen, only works on linux rn tho
 
@@ -82,6 +82,76 @@ dispuname = 0
 
 #Displays your new name
 
+sethname = 0
+
+#Asks you if you want to set a new host name
+
+host = ""
+
+#Host name is not set at the start
+
+disph = 0
+
+#Displays the host name
+
+disphfail = 0
+
+#Screen that is shown if no host name is set
+
+asknewhname = 0
+
+#Asks you for a new host name
+
+confhname = 0
+
+#Confirms the new host name
+
+pyInfo = 0
+
+#The screen that shows the PyShell info
+
+resetconf = 0
+
+#Asks you if you are sure about resetting PyShell
+
+confresetpass = 0
+
+#Asks for your password to reset PyShell
+
+resetdone = 0
+
+#The screen that tells you that you've successfully reset PyShell, you monster >:(
+
+boot = 0
+
+#The variable that runs the loaded OS outside of the shell
+
+bootconf = 0
+
+#Confirms if you want to boot into the OS
+
+fullboot = 0
+
+#The actual OS boot variable :3
+
+bootsetup = 0
+
+#Makes sure you have a username and password to boot the OS
+
+pwd = "/"
+
+root = ["/user-files" , "/about" , "/extra-stuff"]
+
+userfiles = ["example.txt"]
+
+about = ["version.txt" , "credits.txt" , "license.txt"]
+
+extrastuff = ["commands.txt" , "inspirations.txt"]
+
+ls = root
+
+PyLinuxLock = 0
+
 while runtime:
 
     while start:
@@ -99,6 +169,12 @@ while runtime:
 
         a = input("> ")
 
+        if a == "b":
+
+            start = 0
+
+            bootconf = 1
+        
         if a == "s":
 
             start = 0
@@ -270,7 +346,7 @@ while runtime:
         print("PyShell lite\n")
 
         print("Your password is '" + password + "'.")
-        print("Type anything to go back to the main menu\n")
+        print("Type anything to go back\n")
 
         a = input("> ")
 
@@ -308,6 +384,38 @@ while runtime:
         print("b - go back\n")
 
         a = input("> ")
+
+        if a == "f":
+        
+            settings = 0
+
+            resetconf = 1
+        
+        if a == "a":
+
+            settings = 0
+
+            pyInfo = 1
+
+        if a == "h":
+
+            settings = 0
+
+            sethname = 1
+
+        if a == "p":
+
+            if not host == "":
+
+                settings = 0
+
+                disph = 1
+
+            else:
+
+                settings = 0
+
+                disphfail = 1
 
         if a == "u":
 
@@ -488,10 +596,310 @@ while runtime:
 
         print("PyShell lite\n")
 
-        print("You are currently set as '" + name + "'. Press any key to go back\n")
+        print("You are currently set as '" + name + "'.")
+        print("Type anything to go back\n")
 
         a = input("> ")
 
         dispuname = 0
 
         settings = 1
+
+    while sethname:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("n - set a new host name")
+        print("b - go back\n")
+
+        a = input("> ")
+
+        if a == "n":
+
+            sethname = 0
+
+            asknewhname = 1
+
+        if a == "b":
+
+            sethname = 0
+
+            settings = 1
+
+    while asknewhname:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("Type your new host name\n")
+
+        host = input("> ")
+
+        asknewhname = 0
+
+        confhname = 1
+
+    while confhname:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("Is '" + host + "' okay?\n")
+
+        print("y - yes")
+        print("n - no\n")
+
+        a = input("> ")
+
+        if a == "y":
+
+            confhname = 0
+
+            settings = 1
+
+        if a == "n":
+
+            confhname = 0    
+
+            asknewhname = 1
+
+    while disph:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("Your host name is '" + host + "'.")
+        print("Type anything to go back\n")
+
+        a = input("> ")
+
+        disph = 0
+
+        settings = 1
+
+    while disphfail:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("No host name has been set.")
+        print("Type anything to go back\n")
+
+        a = input("> ")
+
+        disphfail = 0
+
+        settings = 1
+
+    while pyInfo:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("PyShell v1.0.0")
+        print("By Franco M.\n")
+
+        print("Based off of Bash, the GNU project, Linux, and Unix\n")
+
+        print("Made by Franco M. in Visual Studio Code by Microsoft with Python by Guido van Rossum")
+        print("Type anything to go back\n")
+
+        a = input("> ")
+
+        pyInfo = 0
+
+        settings = 1
+
+    while resetconf:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("Are you sure you want to fully reset PyShell?\n")
+
+        print("y - yes")
+        print("n - no\n")
+
+        a = input("> ")
+
+        if a == "n":
+
+            resetconf = 0
+
+            settings = 1
+
+        if a == "y":
+
+            resetconf = 0
+            
+            confresetpass = 1
+
+    while confresetpass:
+
+        if not password == "":
+
+            cls()
+
+            print("PyShell lite\n")
+
+            print("Please type your password\n")
+
+            a = input("> ")
+
+            if a == password:
+
+                name = "root"
+
+                password = ""
+
+                host = ""
+
+                confresetpass = 0
+
+                resetdone = 1
+
+            else:
+
+                confresetpass = 0
+
+                resetconf = 1
+
+        else:
+
+            confresetpass = 0
+
+            resetdone = 1
+
+    while resetdone:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("PyShell has successfully been reset.")
+        print("Type anything to go back\n")
+
+        a = input("> ")
+
+        resetdone = 0
+
+        settings = 1
+
+    while bootconf:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("Are you sure you want to boot into the OS?\n")
+
+        print("y - yes")
+        print("n - no\n")
+
+        a  = input("> ")
+
+        if a == "y":
+
+            start = 0
+
+            bootconf = 0
+
+            if host == "":    
+                
+                host = "PyLinux"
+
+            else:
+
+                host = host
+
+            fullboot = 1
+
+            runtime = 0
+
+            cls()
+
+            print("Type 'help' for a list of commands")
+
+        if a == "n":
+
+            bootconf = 0
+
+            start = 1
+
+
+while fullboot:
+
+    a = input(name + "@" + host + pwd + "$ ")
+
+    if a == "pwd":
+
+        print(pwd)
+
+    if a == "ls":
+
+        print('   '.join(ls))
+
+    if a == "help":
+
+        print("help - prints this help message")
+        print("pwd - prints the current directory")
+        print("ls - list the current directory")
+        print("cd - changes the directory to a specified directory")
+        print("   ex - cd /about")
+        print("cat - reads a specified file")
+        print("   ex - cat example.txt")
+        print("whoami - prints your name, password, and user permissions")
+        print("lock - locks the OS, only works if you have a password set")
+        print("chname - changes your user name")
+        print("chpass - changes your password")
+        print("chhost - changes the host name")
+        print("clear - clears the screen")
+        print("exit - shuts off PyLinux")
+        print("")
+
+    if a == "whoami":
+
+        print("Name: " + name)
+        
+        if not password == "":
+            
+            print("Password: " + password)
+
+        else:
+
+            print("Password: No password set")
+
+        print("User permissions: Absolute")
+
+    if a == "lock":
+
+        fullboot = 0
+
+        PyLinuxLock = 1
+
+while PyLinuxLock:
+
+    cls()
+
+    print("PyLinux v1.0.0\n")
+
+    print("[1] Enter password")
+    print("[2] Exit PyLinux\n")
+
+    a = input("> ")
+
+    if a == "1":
+
+        cls()
+
+        print("PyLinux v1.0.0\n")
+
+        print 
