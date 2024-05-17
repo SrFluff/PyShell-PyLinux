@@ -4,6 +4,8 @@ def cls():
 
     os.system('clear')
 
+#Clears the screen, only works on linux rn tho
+
 runtime = 1
 
 #Main variable that runs to make sure you can go between menus
@@ -101,7 +103,13 @@ while runtime:
 
             start = 0
 
+            #Closes the main menu
+
             settings = 1
+
+            #Opens settings
+
+            #All commands set the current variable to zero in oreder to close the current menu, then sets the variabe associated with the menu they want to go to to one> :3
         
         if a == "q":
 
@@ -109,9 +117,13 @@ while runtime:
 
             quit()
 
+            #Closes the file on your machine
+
         if a == "l":
 
             if password != "":
+
+                #!= is not equal, I think...
 
                 start = 0
 
@@ -135,6 +147,8 @@ while runtime:
 
             if not password == "":
 
+                #I should use !=
+
                 start = 0
 
                 disp = 1
@@ -148,6 +162,8 @@ while runtime:
 
     while lock:
 
+    #Lock screen
+    
         cls()
 
         print("PyShell lite\n")
@@ -178,6 +194,12 @@ while runtime:
                 cls()
 
                 lock = 1
+
+        if a == "q":
+
+            cls()
+
+            quit()
 
     while setp:
 
@@ -282,7 +304,7 @@ while runtime:
         print("h - set a host name")
         print("p - show host name")
         print("a - show PyShell info")
-        print("f - fully reset PyShell")
+        print("f - fully reset PyShell") #Sets the username to root, the password and hostname to nothing
         print("b - go back\n")
 
         a = input("> ")
