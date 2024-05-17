@@ -38,6 +38,16 @@ passreset = 0
 
 resetpass = 0
 
+setuname = 0
+
+name = "root"
+
+setnewuname = 0
+
+confnewuname = 0
+
+dispuname = 0
+
 while runtime:
 
     while start:
@@ -236,14 +246,26 @@ while runtime:
 
         print("r - reset password")
         print("n - set a user name")
+        print("u - show user name")
         print("h - set a host name")
+        print("p - show host name")
         print("a - show PyShell info")
         print("f - fully reset PyShell")
         print("b - go back\n")
 
         a = input("> ")
 
-        
+        if a == "u":
+
+            settings = 0
+
+            dispuname = 1
+
+        if a == "n":
+
+            settings = 0
+
+            setuname = 1
 
         if a == "r":
 
@@ -341,5 +363,81 @@ while runtime:
         askforreset = 0
 
         passreset = 0
+
+        settings = 1
+
+    while setuname:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("n - set a new username")
+        print("b - go back\n")
+
+        a = input("> ")
+
+        if a == "n":
+
+            setuname = 0
+
+            setnewuname = 1
+
+        if a == "b":
+
+            setuname = 0
+
+            settings = 1
+
+    while setnewuname:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("Type your new name\n")
+
+        name = input("> ")
+
+        setnewuname = 0
+
+        confnewuname = 1
+
+    while confnewuname:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("Is '" + name + "' okay?\n")
+
+        print("y - yes")
+        print("n - no\n")
+
+        a = input("> ")
+
+        if a == "y":
+
+            confnewuname = 0
+
+            settings = 1
+
+        if a == "n":
+
+            confnewuname = 0
+
+            setnewuname = 1
+
+    while dispuname:
+
+        cls()
+
+        print("PyShell lite\n")
+
+        print("You are currently set as '" + name + "'. Press any key to go back\n")
+
+        a = input("> ")
+
+        dispuname = 0
 
         settings = 1
