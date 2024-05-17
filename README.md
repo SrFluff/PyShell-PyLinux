@@ -1,4 +1,6 @@
-# PyDos
-A more graphical take on a CLI OS, with a Windows inspired filesystem.
+# PyShell
+A shell for a planned Python based mock-OS
 
 This project is not done, it will probably not be finished ever...
+
+:3
