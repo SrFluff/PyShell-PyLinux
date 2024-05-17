@@ -6,47 +6,79 @@ def cls():
 
 runtime = 1
 
+#Main variable that runs to make sure you can go between menus
+
 start = 1
+
+#The main menu
 
 lock = 0
 
-lockfail = 0
+#The lock screen
 
 password = ""
 
+#Sets the password
+
 setp = 0
+
+#The menu where you type a new password
 
 setnp = 0
 
+#The actual interface for where you will type your new password
+
 confnp = 0
 
-enterp = 0
+#The screen that asks you if the password is sufficient
 
 passfail = 0
 
+#Displayed when you incorrectly type your password on the lock screen
+
 disp = 0
 
-askforp = 0
+#Shows your password
 
 settings = 0
 
+#The settings menu
+
 askforreset = 0
+
+#Prompts you to reset your password
 
 resetfail = 0
 
+#If you mistype your password
+
 passreset = 0
+
+#The screen that tells you that your password has been reset
 
 resetpass = 0
 
+#The part that asks you for your password to reset it initially
+
 setuname = 0
+
+#First step in setting a name
 
 name = "root"
 
+#Declares the user's name
+
 setnewuname = 0
+
+#Asks you for a new name
 
 confnewuname = 0
 
+#Confirms your new name
+
 dispuname = 0
+
+#Displays your new name
 
 while runtime:
 
