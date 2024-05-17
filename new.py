@@ -4,7 +4,7 @@ def cls():
 
     os.system('cls' if os.name == 'nt' else 'clear')
 
-#Clears the screen, only works on linux rn tho
+#Clears the screen, now on both operating systems
 
 runtime = 1
 
