@@ -4,7 +4,7 @@ def cls():
 
     os.system('cls' if os.name == 'nt' else 'clear')
 
-#Clears the screen, now on both operating systems
+#Clears the screen, only works on linux rn tho
 
 runtime = 1
 
@@ -902,4 +902,4 @@ while PyLinuxLock:
 
         print("PyLinux v1.0.0\n")
 
-        print 
+        print("") 
