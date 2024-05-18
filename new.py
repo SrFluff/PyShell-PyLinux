@@ -760,6 +760,8 @@ while runtime:
             
             confresetpass = 1
 
+            #Asks for your password to reset PyShell
+
     while confresetpass:
 
         if not password == "":
@@ -790,11 +792,15 @@ while runtime:
 
                 resetconf = 1
 
+                #If you fail it sends you to the confirm reset screen
+
         else:
 
             confresetpass = 0
 
             resetdone = 1
+
+            #Resets the shell if you have no password :3
 
     while resetdone:
 
@@ -834,13 +840,19 @@ while runtime:
                 
                 host = "PyLinux"
 
+                #If no hostname is set it will set it to PyLinux
+
             else:
 
                 host = host
 
             fullboot = 1
 
+            #Boots the OS
+
             runtime = 0
+
+            #Closes the shell
 
             cls()
 
@@ -932,6 +944,8 @@ while fullboot:
         pwd = "/"
 
     if a == "cd ..":
+
+        #Goes up one directory path
 
         if ls == userfiles:
 
