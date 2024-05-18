@@ -881,25 +881,49 @@ while fullboot:
 
     if a == "lock":
 
-        fullboot = 0
+        if not password == "":
 
-        PyLinuxLock = 1
+            fullboot = 0
 
-while PyLinuxLock:
+            PyLinuxLock = 1
 
-    cls()
+        else:
 
-    print("PyLinux v1.0.0\n")
+            print("You have no password set.")
 
-    print("[1] Enter password")
-    print("[2] Exit PyLinux\n")
-
-    a = input("> ")
-
-    if a == "1":
+    while PyLinuxLock:
 
         cls()
 
         print("PyLinux v1.0.0\n")
 
-        print("") 
+        print("[1] Enter password")
+        print("[2] Exit PyLinux\n")
+
+        a = input("> ")
+
+        if a == "1":
+
+            cls()
+
+            print("PyLinux v1.0.0\n")
+
+            print("Please enter your password\n")
+
+            a = input("> ")
+
+            if a == password:
+
+                cls()
+                
+                print("Type 'help' for a list of commands")
+
+                fullboot = 1
+            
+                PyLinuxLock = 0
+
+            else:
+
+                cls()
+
+                PyLinuxLock = 1
