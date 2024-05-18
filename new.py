@@ -152,6 +152,8 @@ ls = root
 
 PyLinuxLock = 0
 
+exitconf = 0
+
 while runtime:
 
     while start:
@@ -865,6 +867,13 @@ while fullboot:
         print("exit - shuts off PyLinux")
         print("")
 
+    if a == "exit":
+
+        fullboot = 0
+
+        exitconf = 1
+        
+    
     if a == "whoami":
 
         print("Name: " + name)
@@ -927,3 +936,30 @@ while fullboot:
                 cls()
 
                 PyLinuxLock = 1
+
+    while exitconf:    
+
+        cls()   
+
+        print("Are you sure you want to quit? All progress will be lost.\n")
+
+        print("[1] Yes")
+        print("[2] No\n")
+
+        a = input("> ")
+
+        if a == "1":
+
+            cls()
+
+            quit()
+
+        if a == "2":
+
+            exitconf = 0
+
+            cls()
+
+            print("Type 'help' for a list of commands")
+    
+            fullboot = 1
