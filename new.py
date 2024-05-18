@@ -140,19 +140,35 @@ bootsetup = 0
 
 pwd = "/"
 
+#The variable shown when you use the pwd command
+
 root = ["/user-files" , "/about" , "/extra-stuff"]
+
+#Contents of the '/' directory
 
 userfiles = ["example.txt"]
 
+#Contents of the '/user-files' directory
+
 about = ["version.txt" , "credits.txt" , "license.txt"]
+
+#Contents of the '/about' directory
 
 extrastuff = ["commands.txt" , "inspirations.txt"]
 
+#Contents of the '/extra-stuff' directory
+
 ls = root
+
+#The variable used in the ls command
 
 PyLinuxLock = 0
 
+#The lock screen
+
 exitconf = 0
+
+#Confirms whether you want to exit
 
 while runtime:
 
@@ -867,12 +883,137 @@ while fullboot:
         print("exit - shuts off PyLinux")
         print("")
 
+    if a == "cd /user-files":
+
+        ls = userfiles
+
+        pwd = "/user-files"
+
+    if a == "cd user-files":
+
+        if ls == root:
+
+            ls = userfiles
+
+            pwd = "/user-files"
+
+    if a == "cd /about":
+
+        ls = about
+
+        pwd = "/about"
+
+    if a == "cd about":
+
+        if ls == root:
+
+            ls = about
+
+            pwd = "/about"
+
+    if a == "cd /extra-stuff":
+
+        ls = extrastuff
+
+        pwd = "/extra-stuff"
+
+    if a == "cd extra-stuff":
+
+        if ls == root:
+
+            ls = extrastuff
+
+            pwd = "/extra-stuff"
+
+    if a == "cd /":
+
+        ls = root
+
+        pwd = "/"
+
+    if a == "cd ..":
+
+        if ls == userfiles:
+
+            ls = root
+
+            pwd = "/"
+
+        if ls == about:
+
+            ls = root
+
+            pwd = "/"
+
+        if ls == extrastuff:
+
+            ls = root
+
+            pwd = "/"
+    
+    if a == "clear":
+
+        cls()
+
+    if a == "chname":
+
+        cls()
+
+        print("Please type your new name\n")
+
+        name = input("> ")
+
+        cls()
+
+        print("Type 'help' for a list of commands")
+
+    if a == "chpass":
+
+        cls()
+
+        print("Please type your current password\n")
+
+        a = input("> ")
+
+        if a == password:
+
+            cls()
+
+            print("Please type a new password\n")
+
+            password = input("> ")
+
+            cls()
+
+            print("Type 'help' for a list of commands")
+
+        if not a == password:
+
+            cls()
+
+            print("Incorrect password, type anything to go back.\n")
+
+            cls()
+
+            print("Type 'help' for a list of commands")
+
+    if a == 'chhname':
+
+        cls()
+
+        print("Type a new host name\n")
+
+        host = input("> ")
+
+        cls()
+
+        print("Type 'help' for a list of commands")
+    
     if a == "exit":
 
         fullboot = 0
 
         exitconf = 1
-        
     
     if a == "whoami":
 
@@ -963,3 +1104,5 @@ while fullboot:
             print("Type 'help' for a list of commands")
     
             fullboot = 1
+
+    #Might take a break lmao
