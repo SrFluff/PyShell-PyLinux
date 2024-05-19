@@ -154,7 +154,7 @@ about = ["version.txt" , "credits.txt" , "license.txt"]
 
 #Contents of the '/about' directory
 
-extrastuff = ["commands.txt" , "inspirations.txt"]
+extrastuff = []
 
 #Contents of the '/extra-stuff' directory
 
@@ -895,6 +895,34 @@ while fullboot:
         print("exit - shuts off PyLinux")
         print("")
 
+    if a == "cat example.txt":
+
+        if ls == userfiles:
+        
+            print("Currently PyLinux does not support creating files, but, PyLinux is intended\nto be forked and customized. Here user files will be stored, these'll be distro\nspecific, for example, a security focused OS could have a guide on how to keep\nyourself safe. For now, user-files just holds this template file, to add a file to the user-files directory go to line 898 and type")
+            print("if a == 'cat <file name>'")
+            print("   if ls == userfiles:")
+            print("      print('<content in the file>')\n")
+            print("Don't forget to add the file name to the userfiles list on line 149.\n")
+
+    if a == "cat version.txt":
+
+        if ls == about:
+
+            print("You are running PyLinux v1.0.0 'vanilla'\n")
+
+    if a == "cat credits.txt":
+
+        if ls == about:
+
+            print("PyLinux v1.0.0 by Franco M. (SrFluff on GitHub) in Visual Studio Code by Microsoft with Python by Guido van Rossum, inspired by Linux by Linus Torvalds\n")
+
+    if a == "cat license.txt":
+
+        if ls == about:
+
+            print("Licensed under the GNU public license :3\n")
+    
     if a == "cd /user-files":
 
         ls = userfiles
@@ -1011,7 +1039,7 @@ while fullboot:
 
             print("Type 'help' for a list of commands")
 
-    if a == 'chhname':
+    if a == 'chhost':
 
         cls()
 
