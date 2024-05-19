@@ -1,6 +1,23 @@
 # PyShell + PyLinux
-A shell for a planned Python based mock-OS
+Built from the ground up shell with PyLinux preinstalled.
 
-This project is not done, it will probably not be finished ever...
+PyLinux is very much inspired by Linux and uses the same Unix-like file system, minus the 'os' files like binaries n' stuff
 
-:3
+v1.0.0 is codenamed vanilla and I might update it later
+
+commands:
+
+help
+pwd
+ls
+cd
+cat
+whoami
+lock
+chname
+chpass
+chhost
+clear
+exit
+
+With much silliness the PyLinux guy :3
